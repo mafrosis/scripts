@@ -1,0 +1,28 @@
+#!/bin/bash
+
+usage="Usage: ./getopts [-h] [-u user] [-a attr1 attr2...] [-s searchattr=value] [-v] arg1 arg2"
+
+while getopts "u:a:s:v" options
+do
+	case $options in
+		u ) uname=$OPTARG;;
+		a ) attrs=$OPTARG;;
+		s ) searchattr=$OPTARG;;
+		v ) att=ALL;;
+		h ) echo $usage;;
+		\? ) echo $usage
+			 exit 1;;
+		* ) echo $usage
+			exit 1;;
+	esac
+done
+shift $((OPTIND-1))		# tidy $# such that $1, $2 etc. now match any extra arguments
+
+echo $uname
+echo $attrs
+echo $searchattr
+echo $att
+
+echo $1
+echo $2
+

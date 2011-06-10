@@ -1,0 +1,14 @@
+#!/bin/bash
+
+usage="mountbindmp3 album-title"
+
+# script to recursively search for an album and then mount --bind it in guest's
+
+SEARCHTERM="$1"
+
+# attempt to locate in MP3's
+
+find /home/mafro/MP3 -iname "*$SEARCHTERM*"
+
+
+

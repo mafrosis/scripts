@@ -1,0 +1,10 @@
+#!/bin/bash
+
+(
+	echo "update"
+) | telnet localhost 6600
+
+PID=$(ps -A | grep telnet)
+
+kill $PID
+
